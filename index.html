@@ -8,6 +8,7 @@
     :root {
       --primary: #1E3A8A;
       --secondary: #0D9488;
+      --accent: #C2410C;
       --bg: #F3F4F6;
       --card-bg: #FFFFFF;
       --text: #1F2937;
@@ -19,7 +20,13 @@
       --must-try-bg: #FFEDD5;
       --note-bg: #FEF3C7;
       --note-text: #92400E;
+      --base-font-size: 16px;
     }
+
+    html {
+      font-size: var(--base-font-size);
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
@@ -33,6 +40,8 @@
       margin: 0 auto;
       padding: 16px;
     }
+
+    /* Header 樣式 */
     header {
       background: var(--primary);
       color: white;
@@ -40,9 +49,46 @@
       border-radius: 12px;
       text-align: center;
       margin-bottom: 16px;
+      position: relative;
     }
-    header h1 { margin: 0; font-size: 1.4rem; }
-    header p { margin: 6px 0 0 0; opacity: 0.9; font-size: 0.85rem; }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    header h1 { margin: 0; font-size: 1.4rem; text-align: left; }
+    
+    /* 字體大小切換按鈕 (參考附圖) */
+    .font-control-bar {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      padding: 3px;
+      gap: 2px;
+      align-items: center;
+    }
+    .font-label {
+      font-size: 0.75rem;
+      color: #E2E8F0;
+      padding: 0 4px 0 8px;
+    }
+    .font-btn {
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .font-btn.active {
+      background: #F59E0B;
+      color: #111827;
+      font-weight: bold;
+    }
+
     .hotel-info {
       margin-top: 10px;
       padding-top: 10px;
@@ -58,7 +104,7 @@
       background: var(--card-bg);
       border-radius: 12px;
       padding: 6px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       position: sticky;
       top: 12px;
@@ -86,6 +132,44 @@
       box-shadow: 0 2px 6px rgba(30, 58, 138, 0.3);
     }
 
+    /* 日期速跳標籤 Bar (參考附圖) */
+    .day-picker-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .day-picker-btn {
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 8px 4px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .day-picker-btn:hover {
+      border-color: var(--primary);
+    }
+    .day-picker-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      box-shadow: 0 3px 8px rgba(194, 65, 12, 0.3);
+    }
+    .day-picker-d {
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: block;
+    }
+    .day-picker-date {
+      font-size: 0.85rem;
+      font-weight: bold;
+      display: block;
+      margin-top: 2px;
+    }
+
     /* 頁面切換控制 */
     .tab-content {
       display: none;
@@ -101,6 +185,7 @@
       padding: 20px;
       margin-bottom: 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      scroll-margin-top: 130px;
     }
     .day-title {
       font-size: 1.15rem;
@@ -240,8 +325,17 @@
 <body>
   <div class="container">
     <header>
-      <h1>🇲🇾 Kuala Lumpur 三日遊指南</h1>
-      <p>日期：2026 / 09 / 26 – 09 / 28</p>
+      <div class="header-top">
+        <h1>🇲🇾 Kuala Lumpur 三日遊指南</h1>
+        <!-- 字體大小調整按鈕 (參考附圖) -->
+        <div class="font-control-bar">
+          <span class="font-label">Tt 字體:</span>
+          <button class="font-btn active" onclick="setFontSize('normal', this)">標準</button>
+          <button class="font-btn" onclick="setFontSize('large', this)">大 A+</button>
+          <button class="font-btn" onclick="setFontSize('xlarge', this)">特大 A++</button>
+        </div>
+      </div>
+      <p style="text-align: left; margin-top: 4px;">日期：2026 / 09 / 26 – 09 / 28</p>
       <div class="hotel-info">
         🏨 Four Points by Sheraton Kuala Lumpur, City Centre<br>
         Corner of Jalan Sultan Ismail, &, Jln Ampang, 50450 Kuala Lumpur, Malaysia
@@ -253,13 +347,30 @@
       <button class="tab-btn active" onclick="switchTab('itinerary')">📅 行程導覽</button>
       <button class="tab-btn" onclick="switchTab('food')">🍴 美食清單</button>
       <button class="tab-btn" onclick="switchTab('helper')">💡 旅遊小幫手</button>
-      <button class="tab-btn" onclick="switchTab('gifts')">🎁 伴手禮</button>
+      <button class="tab-btn" onclick="switchTab('gifts')">🎁 伴手禮參考</button>
     </div>
 
     <!-- TAB 1: 行程導覽 -->
     <div id="itinerary" class="tab-content active">
+      
+      <!-- 日期速跳標籤 Bar (參考附圖 D1/D2/D3 快捷鈕) -->
+      <div class="day-picker-bar">
+        <div class="day-picker-btn active" id="btn-day1" onclick="scrollToDay('day1', this)">
+          <span class="day-picker-d">D1</span>
+          <span class="day-picker-date">9/26(Sat)</span>
+        </div>
+        <div class="day-picker-btn" id="btn-day2" onclick="scrollToDay('day2', this)">
+          <span class="day-picker-d">D2</span>
+          <span class="day-picker-date">9/27(Sun)</span>
+        </div>
+        <div class="day-picker-btn" id="btn-day3" onclick="scrollToDay('day3', this)">
+          <span class="day-picker-d">D3</span>
+          <span class="day-picker-date">9/28(Mon)</span>
+        </div>
+      </div>
+
       <!-- Day 1 -->
-      <div class="day-card">
+      <div class="day-card" id="day1">
         <h2 class="day-title">Day 1：9/26 (Sat) 抵達市區、街頭小食與名廚晚餐</h2>
         <div class="item">
           <span class="badge">Afternoon</span>
@@ -305,7 +416,7 @@
       </div>
 
       <!-- Day 2 -->
-      <div class="day-card">
+      <div class="day-card" id="day2">
         <h2 class="day-title">Day 2：9/27 (Sun) Chinatown 精華巡禮 ➔ 亞羅街夜市</h2>
         <div class="item">
           <span class="badge">Breakfast / Brunch</span>
@@ -338,7 +449,7 @@
       </div>
 
       <!-- Day 3 -->
-      <div class="day-card">
+      <div class="day-card" id="day3">
         <h2 class="day-title">Day 3：9/28 (Mon) 換飯店至 St. Giles ➔ 天后宮 ➔ 巴山椰漿飯 ➔ Dewakan 晚餐</h2>
         <div class="item">
           <span class="badge">Morning Hotel Move</span>
@@ -606,7 +717,7 @@
       </div>
     </div>
 
-    <!-- TAB 4: 伴手禮採買清單 -->
+    <!-- TAB 4: 伴手禮參考 -->
     <div id="gifts" class="tab-content">
       <!-- 經典甜點與零食 -->
       <div class="info-card">
@@ -701,17 +812,15 @@
   </div>
 
   <script>
+    // Tab 切換邏輯
     function switchTab(tabId) {
-      // 隱藏所有分頁內容
       document.querySelectorAll('.tab-content').forEach(content => {
         content.classList.remove('active');
       });
-      // 取消所有 Tab 按鈕的高亮狀態
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
       });
       
-      // 顯示目標分頁並高亮目標按鈕
       document.getElementById(tabId).classList.add('active');
       if (tabId === 'itinerary') {
         document.querySelectorAll('.tab-btn')[0].classList.add('active');
@@ -723,8 +832,37 @@
         document.querySelectorAll('.tab-btn')[3].classList.add('active');
       }
 
-      // 切換時平滑滾動至頁面頂部
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 日期速跳錨點滾動
+    function scrollToDay(dayId, btnElement) {
+      document.querySelectorAll('.day-picker-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      btnElement.classList.add('active');
+
+      const targetCard = document.getElementById(dayId);
+      if (targetCard) {
+        targetCard.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // 字體大小控制功能 (參考附圖)
+    function setFontSize(size, btnElement) {
+      document.querySelectorAll('.font-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      btnElement.classList.add('active');
+
+      const root = document.documentElement;
+      if (size === 'normal') {
+        root.style.setProperty('--base-font-size', '16px');
+      } else if (size === 'large') {
+        root.style.setProperty('--base-font-size', '18px');
+      } else if (size === 'xlarge') {
+        root.style.setProperty('--base-font-size', '20px');
+      }
     }
   </script>
 </body>
