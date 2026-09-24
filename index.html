@@ -17,6 +17,8 @@
       --star: #D97706;
       --must-try: #C2410C;
       --must-try-bg: #FFEDD5;
+      --note-bg: #FEF3C7;
+      --note-text: #92400E;
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -49,7 +51,6 @@
       line-height: 1.4;
       text-align: center;
     }
-    .hotel-info strong { color: #FDE047; }
 
     /* 頂部切換 Bar (Tab Navigation) */
     .tab-bar {
@@ -130,6 +131,15 @@
       font-size: 0.9rem;
       color: #4B5563;
       margin: 4px 0 0 0;
+    }
+    .notice-box {
+      background: var(--note-bg);
+      color: var(--note-text);
+      font-size: 0.83rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-top: 6px;
+      line-height: 1.4;
     }
 
     /* 美食與幫手卡片 */
@@ -247,7 +257,7 @@
     <div id="itinerary" class="tab-content active">
       <!-- Day 1 -->
       <div class="day-card">
-        <h2 class="day-title">Day 1：9/26 (六) 抵達市區、街頭小食與名廚晚餐</h2>
+        <h2 class="day-title">Day 1：9/26 (Sat) 抵達市區、街頭小食與名廚晚餐</h2>
         <div class="item">
           <span class="badge">Afternoon</span>
           <span class="spot">
@@ -293,7 +303,7 @@
 
       <!-- Day 2 -->
       <div class="day-card">
-        <h2 class="day-title">Day 2：9/27 (日) Chinatown 精華巡禮 ➔ 亞羅街夜市</h2>
+        <h2 class="day-title">Day 2：9/27 (Sun) Chinatown 精華巡禮 ➔ 亞羅街夜市</h2>
         <div class="item">
           <span class="badge">Breakfast / Brunch</span>
           <span class="spot">
@@ -326,7 +336,7 @@
 
       <!-- Day 3 -->
       <div class="day-card">
-        <h2 class="day-title">Day 3：9/28 (一) 換飯店至 St. Giles ➔ 天后宮 ➔ 巴山椰漿飯 ➔ Dewakan 晚餐</h2>
+        <h2 class="day-title">Day 3：9/28 (Mon) 換飯店至 St. Giles ➔ 天后宮 ➔ 巴山椰漿飯 ➔ Dewakan 晚餐</h2>
         <div class="item">
           <span class="badge">Morning Hotel Move</span>
           <span class="spot">
@@ -370,6 +380,10 @@
             <a class="map-link" href="https://maps.google.com/?q=Dewakan+Restaurant+Kuala+Lumpur" target="_blank">📍地圖導航</a>
           </span>
           <p class="desc">米其林二星饗宴，行程至此圓滿結束。</p>
+          <div class="notice-box">
+            👔 <strong>Dress Code:</strong> Elegantly Smart<br>
+            📍 <strong>指引說明:</strong> Upon your arrival, please proceed to the concierge at the lobby reception desk, where your name will be noted, and you will be escorted to our restaurant on Level 48 of Naza Tower, Platinum Park.
+          </div>
         </div>
       </div>
     </div>
