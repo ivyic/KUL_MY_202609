@@ -1,143 +1,971 @@
-【唐人街 / 茨廠街區域 Chinatown】
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuala Lumpur 三日遊指南 (9/26 - 9/28)</title>
+  <style>
+    :root {
+      --primary: #1E3A8A;
+      --secondary: #0D9488;
+      --accent: #C2410C;
+      --bg: #F3F4F6;
+      --card-bg: #FFFFFF;
+      --text: #1F2937;
+      --link: #2563EB;
+      --tag-bg: #E0E7FF;
+      --tag-text: #3730A3;
+      --star: #D97706;
+      --must-try: #C2410C;
+      --must-try-bg: #FFEDD5;
+      --michelin-bg: #FEE2E2;
+      --michelin-text: #991B1B;
+      --note-bg: #FEF3C7;
+      --note-text: #92400E;
+      --base-font-size: 16px;
+    }
 
-品泉茶室 (Bunn Choon)
-百年老字號傳統糕餅店，必吃現烤蛋撻與古早味酥餅
-評價：4.3★
-9/26–9/28 營業時間：07:30 – 16:00 (週末至 17:00)
-https://www.google.com/maps/place/?q=place_id:ChIJ26oZVOxJzDERW-yFGLa6p5U
+    html {
+      font-size: var(--base-font-size);
+    }
 
-何九海南茶店 (Ho Kow Hainam Kopitiam)
-百年傳統海南茶室，必點烤咖央麵包、生熟蛋與海南茶
-評價：4.2★
-9/26–9/28 營業時間：07:30 – 14:30 (週末至 16:00)
-https://www.google.com/maps/place/?q=place_id:ChIJHTDEgtpJzDER7Kq_Oj799ww
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 16px;
+    }
 
-青青 Pandan Republic
-鬼仔巷附近的精緻甜品小店，主打濃郁班蘭（Pandan）霜淇淋
-評價：4.2★
-9/26–9/28 營業時間：10:00 – 18:00 (週末至 19:00)
-https://www.google.com/maps/place/?q=place_id:ChIJa0w4KZpJzDERnaRtwoicQIk
+    /* Header 樣式 */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 20px 16px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    header h1 { margin: 0; font-size: 1.4rem; text-align: left; }
+    
+    /* 字體大小切換按鈕 */
+    .font-control-bar {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      padding: 3px;
+      gap: 2px;
+      align-items: center;
+    }
+    .font-label {
+      font-size: 0.75rem;
+      color: #E2E8F0;
+      padding: 0 4px 0 8px;
+    }
+    .font-btn {
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .font-btn.active {
+      background: #F59E0B;
+      color: #111827;
+      font-weight: bold;
+    }
 
-麗豐啦啦米粉 (Lai Foong Lala Noodles)
-米其林必比登推薦，湯頭帶有濃郁紹興酒與薑絲香氣的鮮甜蛤蜊米粉
-評價：4.0★
-9/26–9/28 營業時間：09:00 – 22:00
-https://www.google.com/maps/place/?q=place_id:ChIJPVGtDrxJzDERatQnLHBYARk
+    .hotel-info {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(255,255,255,0.3);
+      font-size: 0.82rem;
+      line-height: 1.4;
+      text-align: center;
+    }
 
-頌記牛肉麵 (Soong Kee Beef Noodles)
-數十年老字號乾撈牛肉麵，搭配特製肉碎醬與牛肉丸湯
-評價：4.3★
-9/26–9/28 營業時間：10:00 – 21:30
-https://www.google.com/maps/place/?q=place_id:ChIJt8vjFdJJzDERTf-IYhwlh_g
+    /* 頂部切換 Bar (Tab Navigation) */
+    .tab-bar {
+      display: flex;
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 6px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+      gap: 4px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 4px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.85rem;
+      border: none;
+      background: transparent;
+      color: #6B7280;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 2px 6px rgba(30, 58, 138, 0.3);
+    }
 
-金蓮記 (Kim Lian Kee)
-茨廠街炭炒福建麵發源地，黑醬油與豬油渣香氣濃郁
-評價：3.5★
-9/26–9/28 營業時間：11:00 – 22:30
-https://www.google.com/maps/place/?q=place_id:ChIJyzInstFJzDEROBGTpMWzr4o
+    /* 日期速跳標籤 Bar */
+    .day-picker-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .day-picker-btn {
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 8px 4px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .day-picker-btn:hover {
+      border-color: var(--primary);
+    }
+    .day-picker-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      box-shadow: 0 3px 8px rgba(194, 65, 12, 0.3);
+    }
+    .day-picker-d {
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: block;
+    }
+    .day-picker-date {
+      font-size: 0.85rem;
+      font-weight: bold;
+      display: block;
+      margin-top: 2px;
+    }
 
-南香雞飯 (Nam Heong Chicken Rice)
-茨廠街老字號海南雞飯，雞肉滑嫩、油飯香氣濃郁
-評價：3.8★
-9/26–9/28 營業時間：10:00 – 15:00
-https://www.google.com/maps/place/?q=Nam+Heong+Chicken+Rice+Petaling+Street+Kuala+Lumpur
+    /* 頁面切換控制 */
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
 
-亞三叻沙 (Asam Laksa Petaling Street)
-茨廠街老字號攤位，酸辣濃郁的魚湯亞三叻沙與咖哩叻沙
-評價：4.2★
-9/26–9/28 營業時間：12:00 – 19:30
-https://www.google.com/maps/place/?q=Asam+Laksa+Petaling+Street+Kuala+Lumpur
+    /* 行程卡片 */
+    .day-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      scroll-margin-top: 130px;
+    }
+    .day-title {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: var(--primary);
+      border-bottom: 2px solid var(--bg);
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+    .item {
+      margin-bottom: 16px;
+    }
+    .item:last-child { margin-bottom: 0; }
+    .badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.8rem;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 4px;
+    }
+    .spot {
+      font-weight: bold;
+      font-size: 1rem;
+      display: block;
+    }
+    .desc {
+      font-size: 0.9rem;
+      color: #4B5563;
+      margin: 4px 0 0 0;
+    }
+    .notice-box {
+      background: var(--note-bg);
+      color: var(--note-text);
+      font-size: 0.83rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
 
-富華茶檔 (Foo Wah Kopitiam)
-傳統巷弄古早味茶室，主打道地海南咖啡、烤吐司與小吃
-評價：4.1★
-9/26–9/28 營業時間：07:30 – 16:30
-https://www.google.com/maps/place/?q=Foo+Wah+Kopitiam+Petaling+Street+Kuala+Lumpur
+    /* 美食、幫手與伴手禮卡片 */
+    .info-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .info-title {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: var(--secondary);
+      margin-top: 0;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed #E5E7EB;
+    }
+    .food-item, .gift-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #F3F4F6;
+    }
+    .food-item:last-child, .gift-item:last-child { border-bottom: none; }
+    .food-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .food-name, .gift-name {
+      font-weight: bold;
+      font-size: 0.98rem;
+    }
+    .rating {
+      color: var(--star);
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+    .michelin-tag {
+      display: inline-block;
+      background: var(--michelin-bg);
+      color: var(--michelin-text);
+      font-size: 0.78rem;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+    .must-try-tag {
+      display: inline-block;
+      background: var(--must-try-bg);
+      color: var(--must-try);
+      font-size: 0.82rem;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-top: 4px;
+    }
+    .food-meta, .gift-meta {
+      font-size: 0.82rem;
+      color: #6B7280;
+      margin-top: 4px;
+    }
 
-碧華樓 (Restoran Pik Wah)
-知名傳統粵菜老字號中餐廳，位於 MABA 大廈，適合多人聚餐
-評價：4.2★
-9/26–9/28 營業時間：12:00–15:00 / 18:00–22:00
-https://www.google.com/maps/place/?q=place_id:ChIJs_yzxtBJzDERG5_Dbs6D_-8
+    /* 換匯表格樣式 */
+    .exchange-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #F3F4F6;
+    }
+    .exchange-item:last-child { border-bottom: none; }
+    .exchange-region {
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .exchange-name {
+      font-weight: bold;
+      color: #111827;
+      font-size: 0.9rem;
+    }
+    .exchange-loc {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      margin: 2px 0;
+    }
+    
+    a.map-link {
+      color: var(--link);
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-left: 6px;
+    }
+    a.map-link:hover { text-decoration: underline; }
 
-【市中心 / KLCC 區域】
-11. Dewakan Restaurant
-米其林二星，頂級現代馬來西亞創新精緻餐飲（位於 Naza Tower）
-評價：4.2★
-9/26–9/28 營業時間：18:00 – 23:30 (週日公休；9/26-27營業)
-https://www.google.com/maps/place/?q=place_id:ChIJD5ydgbdNzDERVeakzTjfpk8
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #9CA3AF;
+      margin-top: 36px;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <h1>🇲🇾 Kuala Lumpur 三日遊指南</h1>
+        <!-- 字體大小調整按鈕 -->
+        <div class="font-control-bar">
+          <span class="font-label">Tt 字體:</span>
+          <button class="font-btn active" onclick="setFontSize('normal', this)">標準</button>
+          <button class="font-btn" onclick="setFontSize('large', this)">大 A+</button>
+          <button class="font-btn" onclick="setFontSize('xlarge', this)">特大 A++</button>
+        </div>
+      </div>
+      <p style="text-align: left; margin-top: 4px;">日期：2026 / 09 / 26 – 09 / 28</p>
+      <div class="hotel-info">
+        🏨 Four Points by Sheraton Kuala Lumpur, City Centre<br>
+        Corner of Jalan Sultan Ismail, &, Jln Ampang, 50450 Kuala Lumpur, Malaysia
+      </div>
+    </header>
 
-Limapulo: Baba Can Cook
-米其林必比登推薦，道地娘惹菜（Nyonya），叻沙湯頭濃郁
-評價：4.3★
-9/26–9/28 營業時間：11:30–15:00 / 17:30–21:00 (週日公休；9/26-27營業)
-https://www.google.com/maps/place/?q=place_id:ChIJ43mF4C5IzDERm8u991ryZuY
+    <!-- 頂部切換 Bar -->
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('itinerary')">📅 行程導覽</button>
+      <button class="tab-btn" onclick="switchTab('food')">🍴 美食清單</button>
+      <button class="tab-btn" onclick="switchTab('helper')">💡 旅遊小幫手</button>
+      <button class="tab-btn" onclick="switchTab('gifts')">🎁 伴手禮參考</button>
+    </div>
 
-華陽茶室 (Oriental Kopi - Suria KLCC)
-人氣爆棚茶室，超厚酥皮蛋撻、濃郁蛋撻與香濃咖啡
-評價：4.6★
-9/26–9/28 營業時間：08:00 – 22:00
-https://www.google.com/maps/place/?q=Oriental+Kopi+Suria+KLCC
+    <!-- TAB 1: 行程導覽 -->
+    <div id="itinerary" class="tab-content active">
+      
+      <!-- 日期速跳標籤 Bar -->
+      <div class="day-picker-bar">
+        <div class="day-picker-btn active" id="btn-day1" onclick="scrollToDay('day1', this)">
+          <span class="day-picker-d">D1</span>
+          <span class="day-picker-date">9/26(Sat)</span>
+        </div>
+        <div class="day-picker-btn" id="btn-day2" onclick="scrollToDay('day2', this)">
+          <span class="day-picker-d">D2</span>
+          <span class="day-picker-date">9/27(Sun)</span>
+        </div>
+        <div class="day-picker-btn" id="btn-day3" onclick="scrollToDay('day3', this)">
+          <span class="day-picker-d">D3</span>
+          <span class="day-picker-date">9/28(Mon)</span>
+        </div>
+      </div>
 
-【武吉免登 / TRX 區域 Bukit Bintang & Imbi】
-14. 黃亞華小食店 (Wong Ah Wah)
-亞羅街指標性夜市大排檔，必點炭烤雞翅與燒魚
-評價：3.3★
-9/26–9/28 營業時間：16:30 – 02:00
-https://www.google.com/maps/place/?q=place_id:ChIJhVkpwik2zDERxSROHrFNFyw
+      <!-- Day 1 -->
+      <div class="day-card" id="day1">
+        <h2 class="day-title">Day 1：9/26 (Sat) 抵達市區、街頭小食與名廚晚餐</h2>
+        <div class="item">
+          <span class="badge">Afternoon</span>
+          <span class="spot">
+            🛬 抵達吉隆坡 (KLIA) & Check-in
+            <a class="map-link" href="https://maps.google.com/?q=Four+Points+by+Sheraton+Kuala+Lumpur+City+Centre" target="_blank">📍Four Points</a>
+          </span>
+          <p class="desc">搭車前往 Four Points by Sheraton KL City Centre 入住與休息。</p>
+        </div>
+        <div class="item">
+          <span class="badge">Snack</span>
+          <span class="spot">
+            🥙 第一餐小食：Halab Gate Shawarma / Burger Ramly
+            <a class="map-link" href="https://maps.google.com/?q=Halab+Gate+Shawarma+Lrg+Perak+Kuala+Lumpur" target="_blank">📍地圖導航</a>
+          </span>
+          <p class="desc">前往 Lrg Perak 享用熱騰騰的現切中東沙威瑪或經典 Ramly 馬來漢堡。</p>
+        </div>
+        <div class="item">
+          <span class="badge">Shopping</span>
+          <span class="spot">
+            🛍️ Pavilion 柏威年商圈
+            <a class="map-link" href="https://maps.google.com/?q=Pavilion+Kuala+Lumpur" target="_blank">📍地圖導航</a>
+          </span>
+          <p class="desc">吃完小食後順路漫步至 Pavilion 輕鬆逛街、採買與吹冷氣。</p>
+        </div>
+        <div class="item">
+          <span class="badge">Dinner</span>
+          <span class="spot">
+            🍽️ De.Wan 1958 by Chef Wan
+            <a class="map-link" href="https://maps.google.com/?q=De.Wan+1958+by+Chef+Wan+The+LINC+KL" target="_blank">📍地圖導航</a>
+          </span>
+          <p class="desc">享用名廚精緻道地的馬來傳統料理饗宴。</p>
+        </div>
+        <div class="item">
+          <span class="badge">Night Sight</span>
+          <span class="spot">
+            🏙️ 雙峰塔 & 莎羅馬天橋夜景
+            <a class="map-link" href="https://maps.google.com/?q=Petronas+Twin+Towers+Kuala+Lumpur" target="_blank">📍雙峰塔</a>
+            <a class="map-link" href="https://maps.google.com/?q=Saloma+Link+Kuala+Lumpur" target="_blank">📍莎羅馬天橋</a>
+          </span>
+          <p class="desc">散步欣賞夜晚點燈景致與拍照。</p>
+        </div>
+      </div>
 
-新峰肉骨茶 (Sun Fong Bak Kut Teh)
-Imbi 區老牌肉骨茶，濃郁中藥湯頭搭配豬排骨
-評價：3.8★
-9/26–9/28 營業時間：07:00 – 23:00
-https://www.google.com/maps/place/?q=place_id:ChIJjbEX5S42zDERIwQnaXRICE4
+      <!-- Day 2 -->
+      <div class="day-card" id="day2">
+        <h2 class="day-title">Day 2：9/27 (Sun) Chinatown 精華巡禮 ➔ 亞羅街夜市</h2>
+        <div class="item">
+          <span class="badge">Breakfast / Brunch</span>
+          <span class="spot">
+            ☕ 何九海南茶店 / 品泉茶室 / 麗豐拉拉米
+            <a class="map-link" href="https://maps.google.com/?q=Ho+Kow+Hainam+Kopitiam+Kuala+Lumpur" target="_blank">📍何九</a>
+            <a class="map-link" href="https://maps.google.com/?q=Bunn+Choon+Kuala+Lumpur" target="_blank">📍品泉</a>
+            <a class="map-link" href="https://maps.google.com/?q=Lai+Foong+Lala+Noodles+Kuala+Lumpur" target="_blank">📍麗豐</a>
+          </span>
+          <p class="desc">前往 Chinatown 享用何九海南茶、烤咖哩吐司與半熟蛋，可順道品嚐品泉蛋撻或麗豐拉拉米酒香蛤蜊米粉。</p>
+        </div>
+        <div class="item">
+          <span class="badge">Afternoon Sight</span>
+          <span class="spot">
+            🏛️ Chinatown 文化與文青漫步
+            <a class="map-link" href="https://maps.google.com/?q=Chan+See+Shu+Yuen+Clan+Ancestral+Hall" target="_blank">📍陳氏書院</a>
+            <a class="map-link" href="https://maps.google.com/?q=REXKL+Kuala+Lumpur" target="_blank">📍REXKL</a>
+            <a class="map-link" href="https://maps.google.com/?q=Kwai+Chai+Hong+Kuala+Lumpur" target="_blank">📍鬼仔巷</a>
+          </span>
+          <p class="desc">走訪陳氏書院（嶺南雕刻建築）、REXKL 迷宮書店與鬼仔巷（復古壁畫巷）。</p>
+        </div>
+        <div class="item">
+          <span class="badge">Dinner / Night Market</span>
+          <span class="spot">
+            🍽️ 亞羅街夜市 (Jalan Alor)
+            <a class="map-link" href="https://maps.google.com/?q=Jalan+Alor+Food+Street+Kuala+Lumpur" target="_blank">📍地圖導航</a>
+          </span>
+          <p class="desc">享用黃亞華燒雞翅、沙爹與熱帶水果。</p>
+        </div>
+      </div>
 
-海腳人 (Hai Kah Lang - TRX)
-米其林必比登推薦海鮮粉店，湯頭極其鮮甜、海鮮配料豐富
-評價：4.3★
-9/26–9/28 營業時間：08:00 – 17:00
-https://www.google.com/maps/place/?q=Hai+Kah+Lang+TRX+Kuala+Lumpur
+      <!-- Day 3 -->
+      <div class="day-card" id="day3">
+        <h2 class="day-title">Day 3：9/28 (Mon) 換飯店至 St. Giles ➔ 天后宮 ➔ 巴山椰漿飯 ➔ Dewakan 晚餐</h2>
+        <div class="item">
+          <span class="badge">Morning Hotel Move</span>
+          <span class="spot">
+            🏨 換飯店 Check-in @ St. Giles Gardens
+            <a class="map-link" href="https://maps.google.com/?q=St.+Giles+Gardens+Residences+Kuala+Lumpur" target="_blank">📍地圖導航</a>
+          </span>
+          <p class="desc">自 Four Points 退房，搭車前往 Mid Valley 的 St. Giles 寄放行李/Check-in。</p>
+        </div>
+        <div class="item">
+          <span class="badge">Breakfast / Brunch</span>
+          <span class="spot">
+            🥐 華陽茶室 (Oriental Kopi @ Mid Valley)
+            <a class="map-link" href="https://maps.google.com/?q=Oriental+Kopi+Mid+Valley+Megamall" target="_blank">📍地圖導航</a>
+          </span>
+          <p class="desc">在飯店連通商場內享用名店酥皮蛋撻、菠蘿包與香濃冰咖啡早餐。</p>
+        </div>
+        <div class="item">
+          <span class="badge">Afternoon Sight</span>
+          <span class="spot">
+            ⛩️ 天后宮 (Thean Hou Temple)
+            <a class="map-link" href="https://maps.google.com/?q=Thean+Hou+Temple+Kuala+Lumpur" target="_blank">📍地圖導航</a>
+          </span>
+          <p class="desc">距離 Mid Valley 僅約 10 分鐘車程，參觀精緻華人廟宇與俯瞰市景。</p>
+        </div>
+        <div class="item">
+          <span class="badge">Late Lunch</span>
+          <span class="spot">
+            🍗 Village Park Restaurant (巴山小吃巡禮)
+            <a class="map-link" href="https://maps.google.com/?q=Village+Park+Restaurant+Petaling+Jaya" target="_blank">📍地圖導航</a>
+          </span>
+          <p class="desc">享用全馬最知名的招牌炸雞椰漿飯 Nasi Lemak。</p>
+        </div>
+        <div class="item">
+          <span class="badge">Rest & Prep</span>
+          <span class="spot">🏨 返回 St. Giles 飯店稍作休息與換裝</span>
+        </div>
+        <div class="item">
+          <span class="badge">Dinner</span>
+          <span class="spot">
+            🍽️ Dewakan Restaurant (已預約 18:00) <span class="michelin-tag">⭐️⭐️ 米其林二星</span>
+            <a class="map-link" href="https://maps.google.com/?q=Dewakan+Restaurant+Kuala+Lumpur" target="_blank">📍地圖導航</a>
+          </span>
+          <p class="desc">米其林二星饗宴，行程至此圓滿結束。</p>
+          <div class="notice-box">
+            👔 <strong>Dress Code:</strong> Elegantly Smart<br>
+            📍 <strong>指引說明:</strong> Upon your arrival, please proceed to the concierge at the lobby reception desk, where your name will be noted, and you will be escorted to our restaurant on Level 48 of Naza Tower, Platinum Park.
+          </div>
+        </div>
+      </div>
+    </div>
 
-Anak Baba
-評價極高的家常娘惹餐廳，藍花飯（Nasi Lemak / Nasi Ulam）與娘惹小吃招牌
-評價：4.4★
-9/26–9/28 營業時間：11:00 – 21:00
-https://www.google.com/maps/place/?q=Anak+Baba+Kuala+Lumpur
+    <!-- TAB 2: 美食清單 -->
+    <div id="food" class="tab-content">
+      <!-- 唐人街 / 茨廠街區域 -->
+      <div class="info-card">
+        <div class="info-title">🏮 唐人街 / 茨廠街區域 Chinatown</div>
+        
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">品泉茶室 (Bunn Choon) <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ26oZVOxJzDERW-yFGLa6p5U" target="_blank">📍地圖</a></span>
+            <span class="rating">4.3 ★</span>
+          </div>
+          <p class="desc">百年老字號傳統糕餅店，必吃現烤蛋撻與古早味酥餅。</p>
+          <div class="must-try-tag">🔥 必點：現烤原味蛋撻、黑芝麻蛋撻、咖央酥、芋頭酥</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：07:30 – 16:00 (週末至 17:00)</div>
+        </div>
 
-【周邊熱門區域】
-18. Village Park Restaurant (鎮園椰漿飯)
-吉隆坡指標性 Nasi Lemak，炸雞香酥、椰香飯濃郁
-評價：4.3★
-9/26–9/28 營業時間：06:30 – 17:30
-https://www.google.com/maps/place/?q=place_id:ChIJIfYLMzFJzDERPG9vHZ7DqiE
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">何九海南茶店 (Ho Kow Hainam Kopitiam) <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJHTDEgtpJzDER7Kq_Oj799ww" target="_blank">📍地圖</a></span>
+            <span class="rating">4.2 ★</span>
+          </div>
+          <p class="desc">百年傳統海南茶室，必點烤咖央麵包、生熟蛋與海南茶。</p>
+          <div class="must-try-tag">🔥 必點：烤咖央牛油雪花麵包、生熟蛋、招牌冰海南茶、咖哩豬皮麵</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：07:30 – 14:30 (週末至 16:00)</div>
+        </div>
 
-Valentine Roti
-印度煎餅（Roti Canai）名店，煎餅香酥、醬汁道地
-評價：4.0★
-9/26–9/28 營業時間：08:00 – 23:45
-https://www.google.com/maps/place/?q=place_id:ChIJYRY0Vtw3zDERbI1CkXBvxYo
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">青青 Pandan Republic <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJa0w4KZpJzDERnaRtwoicQIk" target="_blank">📍地圖</a></span>
+            <span class="rating">4.2 ★</span>
+          </div>
+          <p class="desc">鬼仔巷附近的精緻甜品小店，主打濃郁班蘭（Pandan）霜淇淋。</p>
+          <div class="must-try-tag">🔥 必點：招牌班蘭霜淇淋 (Pandan Soft Serve)、班蘭椰絲煎餅 (Kuih Ketayap)</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：10:00 – 18:00 (週末至 19:00)</div>
+        </div>
 
-建記辣椒板麵 (Kin Kin Chili Pan Mee)
-辣椒板麵始祖店，搭配特製乾辣椒與半熟蛋
-評價：3.9★
-9/26–9/28 營業時間：07:00 – 19:00
-https://www.google.com/maps/place/?q=place_id:ChIJDatlfy9IzDERG5C0gs51DLw
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">麗豐啦啦米粉 (Lai Foong Lala Noodles) <span class="michelin-tag">🏅 米其林必比登</span> <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJPVGtDrxJzDERatQnLHBYARk" target="_blank">📍地圖</a></span>
+            <span class="rating">4.0 ★</span>
+          </div>
+          <p class="desc">米其林必比登推薦，湯頭帶有濃郁紹興酒與薑絲香氣的鮮甜蛤蜊米粉。</p>
+          <div class="must-try-tag">🔥 必點：紹興酒上湯啦啦米粉 (蛤蜊米粉)、牛肉綜合湯米粉</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：09:00 – 22:00</div>
+        </div>
 
-【ICC Pudu 傳統早餐精華集散地】
-21. 阿榮哥海南茶坊 (Ah Weng Koh Hainan Tea)
-ICC Pudu 鎮店之寶，濃郁海南茶搭配生熟蛋與 Kaya 吐司
-評價：3.8★
-9/26–9/28 營業時間：05:30 – 14:00
-https://www.google.com/maps/place/?q=place_id:ChIJm3Ksyi82zDERGujqPBvkQcw
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">頌記牛肉麵 (Soong Kee Beef Noodles) <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJt8vjFdJJzDERTf-IYhwlh_g" target="_blank">📍地圖</a></span>
+            <span class="rating">4.3 ★</span>
+          </div>
+          <p class="desc">數十年老字號乾撈牛肉麵，搭配特製肉碎醬與牛肉丸湯。</p>
+          <div class="must-try-tag">🔥 必點：特製肉碎乾撈麵、牛肉丸牛肉片綜合湯</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：10:00 – 21:30</div>
+        </div>
 
-坤叔牛白腩 (Khun Suk Beef Noodle - ICC Pudu)
-ICC Pudu 內熱門牛腩麵檔，牛腩與牛白腩燉得軟嫩入味、湯頭濃郁
-評價：4.2★
-9/26–9/28 營業時間：06:00 – 13:30
-https://www.google.com/maps/place/?q=ICC+Pudu+Kuala+Lumpur
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">金蓮記 (Kim Lian Kee) <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJyzInstFJzDEROBGTpMWzr4o" target="_blank">📍地圖</a></span>
+            <span class="rating">3.5 ★</span>
+          </div>
+          <p class="desc">茨廠街炭炒福建麵發源地，黑醬油與豬油渣香氣濃郁。</p>
+          <div class="must-try-tag">🔥 必點：傳統炭炒福建麵 (黑醬油豬油渣)、肉絲炒米粉</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：11:00 – 22:30</div>
+        </div>
 
-燕美巴沙姜蛋 (Imbi Market Ginger Egg Noodle - ICC Pudu)
-傳統老字號薑蛋牛肉粉/豬肉粉，薑絲湯頭濃郁暖胃、蛋香十足
-評價：4.1★
-9/26–9/28 營業時間：06:00 – 13:00
-https://www.google.com/maps/place/?q=ICC+Pudu+Kuala+Lumpur
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">南香雞飯 (Nam Heong Chicken Rice) <a class="map-link" href="https://www.google.com/maps/place/?q=Nam+Heong+Chicken+Rice+Petaling+Street+Kuala+Lumpur" target="_blank">📍地圖</a></span>
+            <span class="rating">3.8 ★</span>
+          </div>
+          <p class="desc">茨廠街老字號海南雞飯，雞肉滑嫩、油飯香氣濃郁。</p>
+          <div class="must-try-tag">🔥 必點：海南海南白斬雞、白雞油飯、叉燒燒肉雙拼</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：10:00 – 15:00</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">亞三叻沙 (Asam Laksa Petaling Street) <a class="map-link" href="https://www.google.com/maps/place/?q=Asam+Laksa+Petaling+Street+Kuala+Lumpur" target="_blank">📍地圖</a></span>
+            <span class="rating">4.2 ★</span>
+          </div>
+          <p class="desc">茨廠街老字號攤位，酸辣濃郁的魚湯亞三叻沙與咖哩叻沙。</p>
+          <div class="must-try-tag">🔥 必點：正宗檳城亞三叻沙 (Asam Laksa)、濃香咖哩叻沙</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：12:00 – 19:30</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">富華茶檔 (Foo Wah Kopitiam) <a class="map-link" href="https://www.google.com/maps/place/?q=Foo+Wah+Kopitiam+Petaling+Street+Kuala+Lumpur" target="_blank">📍地圖</a></span>
+            <span class="rating">4.1 ★</span>
+          </div>
+          <p class="desc">傳統巷弄古早味茶室，主打道地海南咖啡、烤吐司與小吃。</p>
+          <div class="must-try-tag">🔥 必點：古早味烤牛油咖央吐司、濃郁香醇海南冰咖啡</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：07:30 – 16:30</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">碧華樓 (Restoran Pik Wah) <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJs_yzxtBJzDERG5_Dbs6D_-8" target="_blank">📍地圖</a></span>
+            <span class="rating">4.2 ★</span>
+          </div>
+          <p class="desc">知名傳統粵菜老字號中餐廳，位於 MABA 大廈，適合多人聚餐。</p>
+          <div class="must-try-tag">🔥 必點：招牌東坡肉、澎湃海鮮豆腐煲、脆皮燒肉</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：12:00–15:00 / 18:00–22:00</div>
+        </div>
+      </div>
+
+      <!-- 市中心 / KLCC 區域 -->
+      <div class="info-card">
+        <div class="info-title">🏙️ 市中心 / KLCC 區域</div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">Dewakan Restaurant <span class="michelin-tag">⭐️⭐️ 米其林二星</span> <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJD5ydgbdNzDERVeakzTjfpk8" target="_blank">📍地圖</a></span>
+            <span class="rating">4.2 ★</span>
+          </div>
+          <p class="desc">米其林二星，頂級現代馬來西亞創新精緻餐飲（位於 Naza Tower）。</p>
+          <div class="must-try-tag">🔥 必點：季節性 Tasting Menu（包含在地珍稀原住民食材與特調 Wine Pairing）</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：18:00 – 23:30 (週日公休；9/26-27營業)</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">Limapulo: Baba Can Cook <span class="michelin-tag">🏅 米其林必比登</span> <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ43mF4C5IzDERm8u991ryZuY" target="_blank">📍地圖</a></span>
+            <span class="rating">4.3 ★</span>
+          </div>
+          <p class="desc">米其林必比登推薦，道地娘惹菜（Nyonya），叻沙湯頭濃郁。</p>
+          <div class="must-try-tag">🔥 必點：招牌娘惹叻沙 (Nyonya Laksa)、仁當雞 (Chicken Rendang)、小金杯 (Pie Tee)</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：11:30–15:00 / 17:30–21:00 (週日公休；9/26-27營業)</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">華陽茶室 (Oriental Kopi - Suria KLCC) <a class="map-link" href="https://www.google.com/maps/place/?q=Oriental+Kopi+Suria+KLCC" target="_blank">📍地圖</a></span>
+            <span class="rating">4.6 ★</span>
+          </div>
+          <p class="desc">人氣爆棚茶室，超厚酥皮蛋撻、濃郁蛋撻與香濃咖啡。</p>
+          <div class="must-try-tag">🔥 必點：華陽金牌超厚酥皮蛋撻、冰鎮華陽濃郁咖啡、菠蘿包</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：08:00 – 22:00</div>
+        </div>
+      </div>
+
+      <!-- 武吉免登 / TRX 區域 -->
+      <div class="info-card">
+        <div class="info-title">🛍️ 武吉免登 / Imbi / TRX 區域 Bukit Bintang & Imbi</div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">黃亞華小食店 (Wong Ah Wah) <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJhVkpwik2zDERxSROHrFNFyw" target="_blank">📍地圖</a></span>
+            <span class="rating">3.3 ★</span>
+          </div>
+          <p class="desc">亞羅街指標性夜市大排檔，必點炭烤雞翅與燒魚。</p>
+          <div class="must-try-tag">🔥 必點：炭烤雞翅、烤魔鬼魚 (燒魚)、烤沙爹串 (Satay)、奶油蝦</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：16:30 – 02:00</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">新峰肉骨茶 (Sun Fong Bak Kut Teh) <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjbEX5S42zDERIwQnaXRICE4" target="_blank">📍地圖</a></span>
+            <span class="rating">3.8 ★</span>
+          </div>
+          <p class="desc">Imbi 區老牌肉骨茶，濃郁中藥湯頭搭配豬排骨。</p>
+          <div class="must-try-tag">🔥 必點：正宗正肉骨茶 (湯)、乾肉骨茶 (濃厚醬香)、油條沾湯</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：07:00 – 23:00</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">海腳人 (Hai Kah Lang - TRX) <span class="michelin-tag">🏅 米其林必比登</span> <a class="map-link" href="https://www.google.com/maps/place/?q=Hai+Kah+Lang+TRX+Kuala+Lumpur" target="_blank">📍地圖</a></span>
+            <span class="rating">4.3 ★</span>
+          </div>
+          <p class="desc">米其林必比登推薦海鮮粉店，湯頭極其鮮甜、海鮮配料豐富。</p>
+          <div class="must-try-tag">🔥 必點：招牌綜合海鮮米粉、鮮魚肉湯米粉、花蟹海鮮粉</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：08:00 – 17:00</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">Anak Baba <a class="map-link" href="https://www.google.com/maps/place/?q=Anak+Baba+Kuala+Lumpur" target="_blank">📍地圖</a></span>
+            <span class="rating">4.4 ★</span>
+          </div>
+          <p class="desc">評價極高的家常娘惹餐廳，藍花飯（Nasi Lemak / Nasi Ulam）與娘惹小吃招牌。</p>
+          <div class="must-try-tag">🔥 必點：藍花椰漿飯 (Nasi Lemak Bunga Telang)、仁當雞、娘惹炸雞</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：11:00 – 21:00</div>
+        </div>
+      </div>
+
+      <!-- 周邊熱門區域 -->
+      <div class="info-card">
+        <div class="info-title">🚗 周邊熱門區域</div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">Village Park Restaurant (鎮園椰漿飯) <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJIfYLMzFJzDERPG9vHZ7DqiE" target="_blank">📍地圖</a></span>
+            <span class="rating">4.3 ★</span>
+          </div>
+          <p class="desc">吉隆坡指標性 Nasi Lemak，炸雞香酥、椰香飯濃郁。</p>
+          <div class="must-try-tag">🔥 必點：招牌炸雞椰漿飯 (Nasi Lemak Ayam Goreng)、咖哩牛肉、珍多冰 (Cendol)</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：06:30 – 17:30</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">Valentine Roti <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJYRY0Vtw3zDERbI1CkXBvxYo" target="_blank">📍地圖</a></span>
+            <span class="rating">4.0 ★</span>
+          </div>
+          <p class="desc">印度煎餅（Roti Canai）名店，煎餅香酥、醬汁道地。</p>
+          <div class="must-try-tag">🔥 必點：Roti Valentine (招牌綜合餡料甩餅)、Roti Tisu (高聳紙巾甩餅)、拉茶 (Teh Tarik)</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：08:00 – 23:45</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">建記辣椒板麵 (Kin Kin Chili Pan Mee) <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJDatlfy9IzDERG5C0gs51DLw" target="_blank">📍地圖</a></span>
+            <span class="rating">3.9 ★</span>
+          </div>
+          <p class="desc">辣椒板麵始祖店，搭配特製乾辣椒與半熟蛋。</p>
+          <div class="must-try-tag">🔥 必點：招牌乾撈辣椒板麵、魚丸半熟蛋湯</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：07:00 – 19:00</div>
+        </div>
+      </div>
+
+      <!-- ICC Pudu 傳統早餐精華集散地 -->
+      <div class="info-card">
+        <div class="info-title">☕ ICC Pudu 傳統早餐精華集散地</div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">阿榮哥海南茶坊 (Ah Weng Koh Hainan Tea) <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJm3Ksyi82zDERGujqPBvkQcw" target="_blank">📍地圖</a></span>
+            <span class="rating">3.8 ★</span>
+          </div>
+          <p class="desc">ICC Pudu 鎮店之寶，濃郁海南茶搭配生熟蛋與 Kaya 吐司。</p>
+          <div class="must-try-tag">🔥 必點：招牌濃郁海南茶 (Teh + Kopi 混和)、Kaya 牛油太空麵包、生熟蛋</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：05:30 – 14:00</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">坤叔牛白腩 (Khun Suk Beef Noodle - ICC Pudu) <a class="map-link" href="https://www.google.com/maps/place/?q=ICC+Pudu+Kuala+Lumpur" target="_blank">📍地圖</a></span>
+            <span class="rating">4.2 ★</span>
+          </div>
+          <p class="desc">ICC Pudu 內熱門牛腩麵檔，牛腩與牛白腩燉得軟嫩入味、湯頭濃郁。</p>
+          <div class="must-try-tag">🔥 必點：招牌牛白腩麵、清湯綜合牛肉粉</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：06:00 – 13:30</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-header">
+            <span class="food-name">燕美巴沙姜蛋 (Imbi Market Ginger Egg Noodle - ICC Pudu) <a class="map-link" href="https://www.google.com/maps/place/?q=ICC+Pudu+Kuala+Lumpur" target="_blank">📍地圖</a></span>
+            <span class="rating">4.1 ★</span>
+          </div>
+          <p class="desc">傳統老字號薑蛋牛肉粉/豬肉粉，薑絲湯頭濃郁暖胃、蛋香十足。</p>
+          <div class="must-try-tag">🔥 必點：薑蛋牛肉粉、薑蛋豬肉米粉</div>
+          <div class="food-meta">🕒 9/26–9/28 營業時間：06:00 – 13:00</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: 旅遊小幫手 -->
+    <div id="helper" class="tab-content">
+      <div class="info-card">
+        <div class="info-title">💱 推薦換匯所懶人包 (Money Changers)</div>
+
+        <div class="exchange-item">
+          <div class="exchange-region">
+            📍 Mid Valley 谷中城商圈
+            <a class="map-link" href="https://maps.google.com/?q=Mid+Valley+Megamall+Money+Changer" target="_blank">📍地圖</a>
+          </div>
+          <div class="exchange-name">Mid Valley Money Changer / Merchantrade</div>
+          <div class="exchange-loc">🏢 谷中城購物中心 (Mid Valley Megamall) LG 層</div>
+          <p class="desc">吉隆坡公認換匯競爭最激烈、美金與各國貨幣匯率最優的區域之一。</p>
+        </div>
+
+        <div class="exchange-item">
+          <div class="exchange-region">
+            📍 武吉免登商圈 (Bukit Bintang)
+            <a class="map-link" href="https://maps.google.com/?q=Pavilion+Kuala+Lumpur+Money+Changer" target="_blank">📍地圖</a>
+          </div>
+          <div class="exchange-name">Vital Rate / Major Express</div>
+          <div class="exchange-loc">🏢 巴比倫廣場 (Pavilion Kuala Lumpur) 1 樓或 B1 樓層</div>
+          <p class="desc">市中心逛街最順路、安全性高，美金與台幣匯率相當不錯。</p>
+        </div>
+
+        <div class="exchange-item">
+          <div class="exchange-region">
+            📍 市中心 / 雙峰塔 (KLCC)
+            <a class="map-link" href="https://maps.google.com/?q=Suria+KLCC+Money+Changer" target="_blank">📍地圖</a>
+          </div>
+          <div class="exchange-name">Yuaun Money Changer / UAE Exchange</div>
+          <div class="exchange-loc">🏢 陽光廣場 (Suria KLCC) B1 層</div>
+          <p class="desc">鄰近超市與地鐵站連接通道，換匯便利，美金現鈔匯率穩定。</p>
+        </div>
+
+        <div class="exchange-item">
+          <div class="exchange-region">
+            📍 中央車站 (KL Sentral)
+            <a class="map-link" href="https://maps.google.com/?q=Nu+Sentral+Money+Changer" target="_blank">📍地圖</a>
+          </div>
+          <div class="exchange-name">GMT Master Exchange / Metro Exchange</div>
+          <div class="exchange-loc">🏢 Nu Sentral 購物中心（與 KL Sentral 車站直連）</div>
+          <p class="desc">若剛搭機場快線抵達市區急需現金，可在此換匯（匯率優於機場）。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: 伴手禮參考 -->
+    <div id="gifts" class="tab-content">
+      <!-- 經典甜點與零食 -->
+      <div class="info-card">
+        <div class="info-title">🍫 經典甜點與零食</div>
+
+        <div class="gift-item">
+          <div class="gift-name">Beryl's 巧克力</div>
+          <p class="desc">大馬國民巧克力品牌，包裝精美且價格實惠。最受歡迎的是提拉米蘇杏仁口味，此外也有榴槤、黑巧克力與草莓等口味。</p>
+          <div class="gift-meta">💡 市區門市或各大超市（如 Village Grocer）購買通常比機場更劃算。</div>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">LOT100 水果軟糖</div>
+          <p class="desc">以天然果汁製作，口感 Q 彈，其中芒果口味是最經典的熱銷款，非常適合帶回辦公室分享。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">MAMEE 怪獸點心麵</div>
+          <p class="desc">大馬人的童年零嘴，口感類似科學麵，將調味粉倒入包裝中搖勻即可食用。有雞汁、香辣與 BBQ 等風味。</p>
+        </div>
+      </div>
+
+      <!-- 道地飲品與茶品 -->
+      <div class="info-card">
+        <div class="info-title">☕ 道地飲品與茶品</div>
+
+        <div class="gift-item">
+          <div class="gift-name">白咖啡（Old Town / 亞發 Ah Huat）</div>
+          <p class="desc">採用獨特低溫烘焙技術，風味香醇滑順、不苦不澀。除了經典三合一，也有低糖或二合一選項。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">BOH 寶樂茶</div>
+          <p class="desc">產自金馬崙高原的知名茶葉品牌。經典的金牌紅茶茶香細膩，而 Seri Songket 特調系列（如百香果、荔枝玫瑰、伯爵柑橘）包裝典雅，適合做為質感禮品。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">馬來西亞濃郁版美祿（MILO）</div>
+          <p class="desc">大馬美祿的可可味比台灣市售版本更為濃郁，超市亦有販售「美祿巧克力方塊（Milo Cube）」或美祿餅乾。</p>
+        </div>
+      </div>
+
+      <!-- 南洋醬料與南洋風味調理包 -->
+      <div class="info-card">
+        <div class="info-title">🍲 南洋醬料與風味調理包</div>
+
+        <div class="gift-item">
+          <div class="gift-name">肉骨茶包 (A1、奇香、毛山稿)</div>
+          <p class="desc">大馬肉骨茶以濃郁中藥材與香料為特色，湯頭甘甜，在家就能輕鬆煮出藥膳湯底。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">咖椰醬 Kaya (華陽、Yeo's)</div>
+          <p class="desc">由椰漿、雞蛋與斑蘭葉熬製，搭配烤吐司與奶油是傳統大馬早餐必吃搭配。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">檳城白咖哩泡麵 (MyKuali)</div>
+          <p class="desc">曾獲選全球第一名美味泡麵，隨附濃郁椰漿粉與獨門醬包。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">參峇醬 Sambal (達昌源、Ayam)</div>
+          <p class="desc">由辣椒、蝦膏與香料調製，微辣鹹香，拌飯拌麵皆宜。</p>
+        </div>
+      </div>
+
+      <!-- 工藝生活與生活實用小物 -->
+      <div class="info-card">
+        <div class="info-title">🛍️ 工藝生活與實用小物</div>
+
+        <div class="gift-item">
+          <div class="gift-name">馬來西亞蠟染（Batik）手工藝品</div>
+          <p class="desc">包含蠟染圖案的零錢包、絲巾、托特包或家居飾品，可在中央市場（Central Market）找到豐富品項。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">Fipper 國民夾腳拖</div>
+          <p class="desc">使用天然橡膠製造，舒適防滑且顏色選擇繽紛，CP 值高。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">居家備用草本藥油</div>
+          <p class="desc">如檳城荳蔻膏/荳蔻油（舒緩蚊蟲叮咬與頭暈）或千里追風油（舒緩肌肉痠痛），是長輩常指定代購的實用品項。</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Have a wonderful trip to Kuala Lumpur! ✈️</p>
+    </footer>
+  </div>
+
+  <script>
+    // Tab 切換邏輯
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      document.getElementById(tabId).classList.add('active');
+      if (tabId === 'itinerary') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+      } else if (tabId === 'food') {
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+      } else if (tabId === 'helper') {
+        document.querySelectorAll('.tab-btn')[2].classList.add('active');
+      } else if (tabId === 'gifts') {
+        document.querySelectorAll('.tab-btn')[3].classList.add('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 日期速跳錨點滾動
+    function scrollToDay(dayId, btnElement) {
+      document.querySelectorAll('.day-picker-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      btnElement.classList.add('active');
+
+      const targetCard = document.getElementById(dayId);
+      if (targetCard) {
+        targetCard.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // 字體大小控制功能
+    function setFontSize(size, btnElement) {
+      document.querySelectorAll('.font-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      btnElement.classList.add('active');
+
+      const root = document.documentElement;
+      if (size === 'normal') {
+        root.style.setProperty('--base-font-size', '16px');
+      } else if (size === 'large') {
+        root.style.setProperty('--base-font-size', '18px');
+      } else if (size === 'xlarge') {
+        root.style.setProperty('--base-font-size', '20px');
+      }
+    }
+  </script>
+</body>
+</html>
