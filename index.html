@@ -49,7 +49,6 @@
       color: white;
       padding: 20px 16px;
       border-radius: 12px;
-      text-align: center;
       margin-bottom: 16px;
       position: relative;
     }
@@ -91,13 +90,16 @@
       font-weight: bold;
     }
 
-    .hotel-info {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px dashed rgba(255,255,255,0.3);
-      font-size: 0.82rem;
-      line-height: 1.4;
-      text-align: center;
+    /* Header 內文字資訊區塊 */
+    .header-info-block {
+      text-align: left;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-top: 6px;
+      color: #E0E7FF;
+    }
+    .header-info-block div {
+      margin-top: 4px;
     }
 
     /* 頂部切換 Bar (Tab Navigation) */
@@ -357,10 +359,10 @@
           <button class="font-btn" onclick="setFontSize('xlarge', this)">特大 A++</button>
         </div>
       </div>
-      <p style="text-align: left; margin-top: 4px;">20260926 – 0928</p>
-      <div class="hotel-info">
-        🏨 Four Points by Sheraton Kuala Lumpur, City Centre<br>
-        Corner of Jalan Sultan Ismail, &, Jln Ampang, 50450 Kuala Lumpur, Malaysia
+      <div class="header-info-block">
+        <div>20260926 – 0928</div>
+        <div>🏨 Four Points by Sheraton Kuala Lumpur, City Centre</div>
+        <div>Corner of Jalan Sultan Ismail, &, Jln Ampang, 50450 Kuala Lumpur, Malaysia</div>
       </div>
     </header>
 
@@ -905,7 +907,7 @@
 
         <div class="gift-item">
           <div class="gift-name">LOT100 水果軟糖</div>
-          <p class="desc">以天然果汁製作，口感 Q 彈，其中芒果口味是最經典的熱銷款，非常適合帶回辦公食分享。</p>
+          <p class="desc">以天然果汁製作，口感 Q 彈，其中芒果口味是最經典的熱銷款，非常適合帶回辦公室分享。</p>
         </div>
 
         <div class="gift-item">
