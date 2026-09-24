@@ -64,19 +64,21 @@
       top: 12px;
       z-index: 100;
       gap: 4px;
+      overflow-x: auto;
     }
     .tab-btn {
       flex: 1;
-      padding: 10px 0;
+      padding: 10px 4px;
       text-align: center;
       font-weight: bold;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       border: none;
       background: transparent;
       color: #6B7280;
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s ease;
+      white-space: nowrap;
     }
     .tab-btn.active {
       background: var(--primary);
@@ -142,7 +144,7 @@
       line-height: 1.4;
     }
 
-    /* 美食與幫手卡片 */
+    /* 美食、幫手與伴手禮卡片 */
     .info-card {
       background: var(--card-bg);
       border-radius: 12px;
@@ -159,18 +161,18 @@
       padding-bottom: 6px;
       border-bottom: 1px dashed #E5E7EB;
     }
-    .food-item {
+    .food-item, .gift-item {
       padding: 12px 0;
       border-bottom: 1px solid #F3F4F6;
     }
-    .food-item:last-child { border-bottom: none; }
+    .food-item:last-child, .gift-item:last-child { border-bottom: none; }
     .food-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       flex-wrap: wrap;
     }
-    .food-name {
+    .food-name, .gift-name {
       font-weight: bold;
       font-size: 0.98rem;
     }
@@ -189,7 +191,7 @@
       border-radius: 4px;
       margin-top: 4px;
     }
-    .food-meta {
+    .food-meta, .gift-meta {
       font-size: 0.82rem;
       color: #6B7280;
       margin-top: 4px;
@@ -251,6 +253,7 @@
       <button class="tab-btn active" onclick="switchTab('itinerary')">📅 行程導覽</button>
       <button class="tab-btn" onclick="switchTab('food')">🍴 美食清單</button>
       <button class="tab-btn" onclick="switchTab('helper')">💡 旅遊小幫手</button>
+      <button class="tab-btn" onclick="switchTab('gifts')">🎁 伴手禮</button>
     </div>
 
     <!-- TAB 1: 行程導覽 -->
@@ -603,6 +606,95 @@
       </div>
     </div>
 
+    <!-- TAB 4: 伴手禮採買清單 -->
+    <div id="gifts" class="tab-content">
+      <!-- 經典甜點與零食 -->
+      <div class="info-card">
+        <div class="info-title">🍫 經典甜點與零食</div>
+
+        <div class="gift-item">
+          <div class="gift-name">Beryl's 巧克力</div>
+          <p class="desc">大馬國民巧克力品牌，包裝精美且價格實惠。最受歡迎的是提拉米蘇杏仁口味，此外也有榴槤、黑巧克力與草莓等口味。</p>
+          <div class="gift-meta">💡 市區門市或各大超市（如 Village Grocer）購買通常比機場更劃算。</div>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">LOT100 水果軟糖</div>
+          <p class="desc">以天然果汁製作，口感 Q 彈，其中芒果口味是最經典的熱銷款，非常適合帶回辦公室分享。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">MAMEE 怪獸點心麵</div>
+          <p class="desc">大馬人的童年零嘴，口感類似科學麵，將調味粉倒入包裝中搖勻即可食用。有雞汁、香辣與 BBQ 等風味。</p>
+        </div>
+      </div>
+
+      <!-- 道地飲品與茶品 -->
+      <div class="info-card">
+        <div class="info-title">☕ 道地飲品與茶品</div>
+
+        <div class="gift-item">
+          <div class="gift-name">白咖啡（Old Town / 亞發 Ah Huat）</div>
+          <p class="desc">採用獨特低溫烘焙技術，風味香醇滑順、不苦不澀。除了經典三合一，也有低糖或二合一選項。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">BOH 寶樂茶</div>
+          <p class="desc">產自金馬崙高原的知名茶葉品牌。經典的金牌紅茶茶香細膩，而 Seri Songket 特調系列（如百香果、荔枝玫瑰、伯爵柑橘）包裝典雅，適合做為質感禮品。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">馬來西亞濃郁版美祿（MILO）</div>
+          <p class="desc">大馬美祿的可可味比台灣市售版本更為濃郁，超市亦有販售「美祿巧克力方塊（Milo Cube）」或美祿餅乾。</p>
+        </div>
+      </div>
+
+      <!-- 南洋醬料與南洋風味調理包 -->
+      <div class="info-card">
+        <div class="info-title">🍲 南洋醬料與風味調理包</div>
+
+        <div class="gift-item">
+          <div class="gift-name">肉骨茶包 (A1、奇香、毛山稿)</div>
+          <p class="desc">大馬肉骨茶以濃郁中藥材與香料為特色，湯頭甘甜，在家就能輕鬆煮出藥膳湯底。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">咖椰醬 Kaya (華陽、Yeo's)</div>
+          <p class="desc">由椰漿、雞蛋與斑蘭葉熬製，搭配烤吐司與奶油是傳統大馬早餐必吃搭配。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">檳城白咖哩泡麵 (MyKuali)</div>
+          <p class="desc">曾獲選全球第一名美味泡麵，隨附濃郁椰漿粉與獨門醬包。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">參峇醬 Sambal (達昌源、Ayam)</div>
+          <p class="desc">由辣椒、蝦膏與香料調製，微辣鹹香，拌飯拌麵皆宜。</p>
+        </div>
+      </div>
+
+      <!-- 工藝生活與生活實用小物 -->
+      <div class="info-card">
+        <div class="info-title">🛍️ 工藝生活與實用小物</div>
+
+        <div class="gift-item">
+          <div class="gift-name">馬來西亞蠟染（Batik）手工藝品</div>
+          <p class="desc">包含蠟染圖案的零錢包、絲巾、托特包或家居飾品，可在中央市場（Central Market）找到豐富品項。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">Fipper 國民夾腳拖</div>
+          <p class="desc">使用天然橡膠製造，舒適防滑且顏色選擇繽紛，CP 值高。</p>
+        </div>
+
+        <div class="gift-item">
+          <div class="gift-name">居家備用草本藥油</div>
+          <p class="desc">如檳城荳蔻膏/荳蔻油（舒緩蚊蟲叮咬與頭暈）或千里追風油（舒緩肌肉痠痛），是長輩常指定代購的實用品項。</p>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <p>Have a wonderful trip to Kuala Lumpur! ✈️</p>
     </footer>
@@ -627,6 +719,8 @@
         document.querySelectorAll('.tab-btn')[1].classList.add('active');
       } else if (tabId === 'helper') {
         document.querySelectorAll('.tab-btn')[2].classList.add('active');
+      } else if (tabId === 'gifts') {
+        document.querySelectorAll('.tab-btn')[3].classList.add('active');
       }
 
       // 切換時平滑滾動至頁面頂部
