@@ -272,9 +272,9 @@
     .food-item:last-child, .gift-item:last-child { border-bottom: none; }
     .food-header {
       display: flex;
-      justify-content: space-between;
       align-items: baseline;
       flex-wrap: wrap;
+      gap: 8px;
     }
     .food-name, .gift-name {
       font-weight: bold;
@@ -420,7 +420,7 @@
           <span class="badge">Afternoon</span>
           <div class="spot-container">
             <span class="spot">🛬 抵達吉隆坡 (KLIA) & Check-in</span>
-            <a class="map-link" href="https://maps.google.com/?q=Four+Points+by+Sheraton+Kuala+Lumpur+City+Centre" target="_blank">📍 地圖</a>
+            <a class="map-link" href="https://maps.google.com/?q=Four+Points+by+Sheraton+Kuala+Lumpur+City+Centre" target="_blank">📍 Four Points</a>
           </div>
           <p class="desc">
             🚆 機場快線 (KLIA Ekspres) ➔ KL Sentral 轉 🔴 5號紅線 (LRT Kelana Jaya Line) ➔ <strong>Dang Wangi (KJ12)</strong> 站（步行 5 分鐘）<br>
@@ -462,8 +462,8 @@
           <span class="badge">Night Sight</span>
           <span class="spot">🏙️ 雙峰塔 & 莎羅馬天橋夜景</span>
           <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-            <a class="map-link" href="https://maps.google.com/?q=Petronas+Twin+Towers+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            <a class="map-link" href="https://maps.google.com/?q=Saloma+Link+Kuala+Lumpur" target="_blank">📍 地圖</a>
+            <a class="map-link" href="https://maps.google.com/?q=Petronas+Twin+Towers+Kuala+Lumpur" target="_blank">📍 雙峰塔</a>
+            <a class="map-link" href="https://maps.google.com/?q=Saloma+Link+Kuala+Lumpur" target="_blank">📍 莎羅馬天橋</a>
           </div>
           <p class="desc" style="margin-top:6px;">
             🚆 🔴 5號紅線從 Ampang Park ➔ 1 站至 <strong>KLCC (KJ10)</strong> 欣賞雙峰塔<br>
@@ -479,9 +479,9 @@
           <span class="badge">Breakfast / Brunch</span>
           <span class="spot">☕ 何九海南茶店 / 品泉茶室 / 麗豐拉拉米</span>
           <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-            <a class="map-link" href="https://maps.google.com/?q=Ho+Kow+Hainam+Kopitiam+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            <a class="map-link" href="https://maps.google.com/?q=Bunn+Choon+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            <a class="map-link" href="https://maps.google.com/?q=Lai+Foong+Lala+Noodles+Kuala+Lumpur" target="_blank">📍 地圖</a>
+            <a class="map-link" href="https://maps.google.com/?q=Ho+Kow+Hainam+Kopitiam+Kuala+Lumpur" target="_blank">📍 何九</a>
+            <a class="map-link" href="https://maps.google.com/?q=Bunn+Choon+Kuala+Lumpur" target="_blank">📍 品泉</a>
+            <a class="map-link" href="https://maps.google.com/?q=Lai+Foong+Lala+Noodles+Kuala+Lumpur" target="_blank">📍 麗豐</a>
           </div>
           <p class="desc" style="margin-top:6px;">
             🚆 🔴 5號紅線從 Dang Wangi (KJ12) ➔ 2 站至 <strong>Pasar Seni (KJ14)</strong> 站（出站即達 Chinatown）；或 🟢 9號綠線至 <strong>Pasar Seni (KG16)</strong> 站
@@ -491,9 +491,9 @@
           <span class="badge">Afternoon Sight</span>
           <span class="spot">🏛️ Chinatown 文化與文青漫步</span>
           <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-            <a class="map-link" href="https://maps.google.com/?q=Chan+See+Shu+Yuen+Clan+Ancestral+Hall" target="_blank">📍 地圖</a>
-            <a class="map-link" href="https://maps.google.com/?q=REXKL+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            <a class="map-link" href="https://maps.google.com/?q=Kwai+Chai+Hong+Kuala+Lumpur" target="_blank">📍 地圖</a>
+            <a class="map-link" href="https://maps.google.com/?q=Chan+See+Shu+Yuen+Clan+Ancestral+Hall" target="_blank">📍 陳氏書院</a>
+            <a class="map-link" href="https://maps.google.com/?q=REXKL+Kuala+Lumpur" target="_blank">📍 REXKL</a>
+            <a class="map-link" href="https://maps.google.com/?q=Kwai+Chai+Hong+Kuala+Lumpur" target="_blank">📍 鬼仔巷</a>
           </div>
           <p class="desc" style="margin-top:6px;">
             🚶‍♂️ 區域內景點<strong>全程步行</strong>即可輕鬆抵達
@@ -587,10 +587,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">品泉茶室 (Bunn Choon)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.3 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ26oZVOxJzDERW-yFGLa6p5U" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.3 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ26oZVOxJzDERW-yFGLa6p5U" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">百年老字號傳統糕餅店，必吃現烤蛋撻與古早味酥餅。</p>
           <div class="must-try-tag">🔥 必點：現烤原味蛋撻、黑芝麻蛋撻、咖央酥、芋頭酥</div>
@@ -600,10 +598,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">何九海南茶店 (Ho Kow Hainam Kopitiam)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.2 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJHTDEgtpJzDER7Kq_Oj799ww" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.2 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJHTDEgtpJzDER7Kq_Oj799ww" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">百年傳統海南茶室，必點烤咖央麵包、生熟蛋與海南茶。</p>
           <div class="must-try-tag">🔥 必點：烤咖央牛油雪花麵包、生熟蛋、招牌冰海南茶、咖哩豬皮麵</div>
@@ -613,10 +609,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">麗豐啦啦米粉 (Lai Foong Lala Noodles) <span class="michelin-tag">🏅 米其林必比登</span></span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.0 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJPVGtDrxJzDERatQnLHBYARk" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.0 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJPVGtDrxJzDERatQnLHBYARk" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">米其林必比登推薦，湯頭帶有濃郁紹興酒與薑絲香氣的鮮甜蛤蜊米粉。</p>
           <div class="must-try-tag">🔥 必點：紹興酒上湯啦啦米粉 (蛤蜊米粉)、牛肉綜合湯米粉</div>
@@ -626,10 +620,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">頌記牛肉麵 (Soong Kee Beef Noodles)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.3 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJt8vjFdJJzDERTf-IYhwlh_g" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.3 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJt8vjFdJJzDERTf-IYhwlh_g" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">數十年老字號乾撈牛肉麵，搭配特製肉碎醬與牛肉丸湯。</p>
           <div class="must-try-tag">🔥 必點：特製肉碎乾撈麵、牛肉丸牛肉片綜合湯</div>
@@ -639,10 +631,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">金蓮記 (Kim Lian Kee)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">3.5 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJyzInstFJzDEROBGTpMWzr4o" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">3.5 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJyzInstFJzDEROBGTpMWzr4o" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">茨廠街炭炒福建麵發源地，黑醬油與豬油渣香氣濃郁。</p>
           <div class="must-try-tag">🔥 必點：傳統炭炒福建麵 (黑醬油豬油渣)、肉絲炒米粉</div>
@@ -652,10 +642,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">南香雞飯 (Nam Heong Chicken Rice)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">3.8 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=Nam+Heong+Chicken+Rice+Petaling+Street+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">3.8 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=Nam+Heong+Chicken+Rice+Petaling+Street+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">茨廠街老字號海南雞飯，雞肉滑嫩、油飯香氣濃郁。</p>
           <div class="must-try-tag">🔥 必點：海南白斬雞、白雞油飯、叉燒燒肉雙拼</div>
@@ -665,10 +653,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">亞三叻沙 (Asam Laksa Petaling Street)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.2 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=Asam+Laksa+Petaling+Street+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.2 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=Asam+Laksa+Petaling+Street+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">茨廠街老字號攤位，酸辣濃郁的魚湯亞三叻沙與咖哩叻沙。</p>
           <div class="must-try-tag">🔥 必點：正宗檳城亞三叻沙 (Asam Laksa)、濃香咖哩叻沙</div>
@@ -678,10 +664,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">碧華樓 (Restoran Pik Wah)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.2 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJs_yzxtBJzDERG5_Dbs6D_-8" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.2 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJs_yzxtBJzDERG5_Dbs6D_-8" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">知名傳統粵菜老字號中餐廳，位於 MABA 大廈，適合多人聚餐。</p>
           <div class="must-try-tag">🔥 必點：招牌東坡肉、澎湃海鮮豆腐煲、脆皮燒肉</div>
@@ -694,10 +678,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">VCR (Pudu / Galloway 總店)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.4 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=VCR+Jalan+Galloway+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.4 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=VCR+Jalan+Galloway+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">吉隆坡老字號精品咖啡始祖，老宅改建文青風，手沖單品豆選擇多且烘焙水準極高。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：08:30 – 22:00</div>
@@ -706,10 +688,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">LOKL Coffee Co.</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.2 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=LOKL+Coffee+Co+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.2 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=LOKL+Coffee+Co+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">傳統南洋老宅與現代美式工業風融合，義式咖啡風味扎實，是當地文青常客聚集地。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：08:00 – 17:00</div>
@@ -718,10 +698,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">Transparent Coffee</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.5 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Transparent+Coffee+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.5 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Transparent+Coffee+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">極簡自然的無標籤設計，主打極高水準單品手沖與產地直送咖啡豆，咖啡極客秘境。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：08:00 – 17:00</div>
@@ -730,10 +708,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">Kopenhagen Coffee</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.4 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Kopenhagen+Coffee+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.4 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Kopenhagen+Coffee+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">純淨極簡北歐斯堪地那維亞風格，手沖與淺焙咖啡風味極為清爽細緻。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：07:00 – 16:00 (週末至 17:00)</div>
@@ -747,10 +723,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">Dewakan Restaurant <span class="michelin-tag">⭐️⭐️ 米其林二星</span></span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.2 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJD5ydgbdNzDERVeakzTjfpk8" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.2 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJD5ydgbdNzDERVeakzTjfpk8" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">米其林二星，頂級現代馬來西亞創新精緻餐飲（位於 Naza Tower）。</p>
           <div class="must-try-tag">🔥 必點：季節性 Tasting Menu（包含在地珍稀原住民食材與特調 Wine Pairing）</div>
@@ -760,10 +734,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">Limapulo: Baba Can Cook <span class="michelin-tag">🏅 米其林必比登</span></span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.3 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ43mF4C5IzDERm8u991ryZuY" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.3 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ43mF4C5IzDERm8u991ryZuY" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">米其林必比登推薦，道地娘惹菜（Nyonya），叻沙湯頭濃郁。</p>
           <div class="must-try-tag">🔥 必點：招牌娘惹叻沙 (Nyonya Laksa)、仁當雞 (Chicken Rendang)、小金杯 (Pie Tee)</div>
@@ -776,10 +748,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">103 Coffee (Chow Kit 分店)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.5 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=103+Coffee+Chow+Kit+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.5 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=103+Coffee+Chow+Kit+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">拉花迷必訪！團隊曾獲世界咖啡拉花大賽冠軍，拉花圖樣細緻度極高，店面設計極簡新潮。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：08:00 – 21:00</div>
@@ -788,10 +758,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">The Roastery by 103 Coffee (KLCC 區域)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.6 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=The+Roastery+by+103+Coffee+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.6 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=The+Roastery+by+103+Coffee+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">主打極致手沖體驗與自家烘焙特選豆，咖啡師會詳細介紹豆種風味與萃取細節。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：08:00 – 21:00</div>
@@ -805,10 +773,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">黃亞華小食店 (Wong Ah Wah)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">3.3 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJhVkpwik2zDERxSROHrFNFyw" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">3.3 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJhVkpwik2zDERxSROHrFNFyw" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">亞羅街指標性夜市大排檔，必點炭烤雞翅與燒魚。</p>
           <div class="must-try-tag">🔥 必點：炭烤雞翅、烤魔鬼魚 (燒魚)、烤沙爹串 (Satay)、奶油蝦</div>
@@ -818,10 +784,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">新峰肉骨茶 (Sun Fong Bak Kut Teh)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">3.8 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjbEX5S42zDERIwQnaXRICE4" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">3.8 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjbEX5S42zDERIwQnaXRICE4" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">Imbi 區老牌肉骨茶，濃郁中藥湯頭搭配豬排骨。</p>
           <div class="must-try-tag">🔥 必點：正宗正肉骨茶 (湯)、乾肉骨茶 (濃厚醬香)、油條沾湯</div>
@@ -831,10 +795,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">海腳人 (Hai Kah Lang - TRX) <span class="michelin-tag">🏅 米其林必比登</span></span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.3 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=Hai+Kah+Lang+TRX+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.3 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=Hai+Kah+Lang+TRX+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">米其林必比登推薦海鮮粉店，湯頭極其鮮甜、海鮮配料豐富。</p>
           <div class="must-try-tag">🔥 必點：招牌綜合海鮮米粉、鮮魚肉湯米粉、花蟹海鮮粉</div>
@@ -844,10 +806,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">Anak Baba</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.4 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=Anak+Baba+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.4 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=Anak+Baba+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">評價極高的家常娘惹餐廳，藍花飯（Nasi Lemak / Nasi Ulam）與娘惹小吃招牌。</p>
           <div class="must-try-tag">🔥 必點：藍花椰漿飯 (Nasi Lemak Bunga Telang)、仁當雞、娘惹炸雞</div>
@@ -860,10 +820,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">103 Coffee (Imbi 分店)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.6 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=103+Coffee+Jalan+Barat+Imbi+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.6 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=103+Coffee+Jalan+Barat+Imbi+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">103 Coffee 位於 Imbi 區 (Jalan Barat, Off Jalan Imbi) 的質感分店，延續冠軍拉花與高品質手沖水準。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：08:00 – 21:30</div>
@@ -872,10 +830,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">Feeka Coffee Roasters</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.3 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Feeka+Coffee+Roasters+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.3 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Feeka+Coffee+Roasters+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">位於武吉免登靜謐巷弄內，主打高水準自家烘焙咖啡與精緻手沖，極具英倫文青氛圍。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：08:00 – 22:30</div>
@@ -884,10 +840,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">VCR TRX</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.4 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=VCR+TRX+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.4 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=VCR+TRX+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">VCR 於全新地標 The Exchange TRX 打造的門市，兼具時尚設計感與頂級手沖體驗。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：08:30 – 22:00</div>
@@ -901,10 +855,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">Village Park Restaurant (鎮園椰漿飯)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.3 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJIfYLMzFJzDERPG9vHZ7DqiE" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.3 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJIfYLMzFJzDERPG9vHZ7DqiE" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">吉隆坡指標性 Nasi Lemak，炸雞香酥、椰香飯濃郁。</p>
           <div class="must-try-tag">🔥 必點：招牌炸雞椰漿飯 (Nasi Lemak Ayam Goreng)、咖哩牛肉、珍多冰 (Cendol)</div>
@@ -917,10 +869,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">Curator Coffee</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.6 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Curator+Coffee+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.6 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Curator+Coffee+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">專業型策展式咖啡館，提供來自全球知名烘豆商的限量特選單品豆，手沖愛好者必訪。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：09:00 – 18:00</div>
@@ -929,10 +879,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">One Half Coffee</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.5 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=One+Half+Coffee+Petaling+Jaya" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.5 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=One+Half+Coffee+Petaling+Jaya" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">由馬來西亞世界咖啡師大賽 (Barista Championship) 冠軍創立，結合選物店，手沖萃取極精準。</p>
           <div class="food-meta">🕒 9/26–9/28 營業時間：08:00 – 22:00</div>
@@ -946,10 +894,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">阿榮哥海南茶坊 (Ah Weng Koh Hainan Tea)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">3.8 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJm3Ksyi82zDERGujqPBvkQcw" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">3.8 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJm3Ksyi82zDERGujqPBvkQcw" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">ICC Pudu 鎮店之寶，濃郁海南茶搭配生熟蛋與 Kaya 吐司。</p>
           <div class="must-try-tag">🔥 必點：招牌濃郁海南茶 (Teh + Kopi 混和)、Kaya 牛油太空麵包、生熟蛋</div>
@@ -959,10 +905,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">坤叔牛白腩 (Khun Suk Beef Noodle - ICC Pudu)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.2 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=ICC+Pudu+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.2 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=ICC+Pudu+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">ICC Pudu 內熱門牛腩麵檔，牛腩與牛白腩燉得軟嫩入味、湯頭濃郁。</p>
           <div class="must-try-tag">🔥 必點：招牌牛白腩麵、清湯綜合牛肉粉</div>
@@ -972,10 +916,8 @@
         <div class="food-item">
           <div class="food-header">
             <span class="food-name">燕美巴沙姜蛋 (Imbi Market Ginger Egg Noodle - ICC Pudu)</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="rating">4.1 ★</span>
-              <a class="map-link" href="https://www.google.com/maps/place/?q=ICC+Pudu+Kuala+Lumpur" target="_blank">📍 地圖</a>
-            </div>
+            <span class="rating">4.1 ★</span>
+            <a class="map-link" href="https://www.google.com/maps/place/?q=ICC+Pudu+Kuala+Lumpur" target="_blank">📍 地圖</a>
           </div>
           <p class="desc">傳統老字號薑蛋牛肉粉/豬肉粉，薑絲湯頭濃郁暖胃、蛋香十足。</p>
           <div class="must-try-tag">🔥 必點：薑蛋牛肉粉、薑蛋豬肉米粉</div>
